@@ -79,9 +79,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/tailwindcss/base.css",
-              "node_modules/tailwindcss/components.css",
-              "node_modules/tailwindcss/utilities.css"
+              "node_modules/highlight.js/styles/github-dark.css"
             ],
             "scripts": []
           }
