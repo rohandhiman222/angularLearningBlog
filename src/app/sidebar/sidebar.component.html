@@ -1,0 +1,43 @@
+<aside [class.w-64]="!isCollapsed" [class.w-16]="isCollapsed"
+       class="bg-gray-800 text-white min-h-screen transition-all duration-300">
+  <!-- Sidebar Header -->
+  <div class="flex items-center justify-between p-4">
+    <span class="text-xl font-semibold" *ngIf="!isCollapsed">MyApp</span>
+
+    <button (click)="toggleSidebar()" class="text-gray-400 hover:text-white">
+      <ng-icon *ngIf="isCollapsed" [name]="'heroChevronRight'" class="h-6 w-6"></ng-icon>
+      <ng-icon *ngIf="!isCollapsed" [name]="'heroChevronLeft'" class="h-6 w-6"></ng-icon>
+    </button>
+  </div>
+
+  <ul class="px-2">
+    <li *ngFor="let item of menuItems; let i = index" class="mb-2">
+      <a *ngIf="!item.children"
+         [routerLink]="item.route"
+         class="block py-2 px-3 rounded hover:bg-gray-700 flex items-center">
+        <ng-icon [name]="item.icon" class="h-5 w-5 mr-3"></ng-icon>
+        <span *ngIf="!isCollapsed">{{ item.title }}</span>
+      </a>
+
+      <!-- Submenu -->
+      <div *ngIf="item.children" class="mb-2">
+        <button (click)="toggleSubmenu(i)" class="w-full text-left py-2 px-3 flex items-center rounded hover:bg-gray-700">
+          <ng-icon [name]="item.icon" class="h-5 w-5 mr-3"></ng-icon>
+          <span *ngIf="!isCollapsed">{{ item.title }}</span>
+          <ng-icon *ngIf="isCollapsed" [name]="openSubmenuIndex === i ? 'heroChevronUp' : 'heroChevronDown'" class="ml-auto h-4 w-4"></ng-icon>
+          <ng-icon *ngIf="!isCollapsed" [name]="openSubmenuIndex === i ? 'heroChevronUp' : 'heroChevronDown'" class="ml-auto h-5 w-5"></ng-icon>
+        </button>
+
+        <!-- Children -->
+        <ul *ngIf="openSubmenuIndex === i" class="pl-4">
+          <li *ngFor="let child of item.children">
+            <a [routerLink]="child.route"
+               class="block py-1 px-3 rounded hover:bg-gray-700 text-sm">
+              {{ child.title }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</aside>
