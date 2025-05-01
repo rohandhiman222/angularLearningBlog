@@ -1,0 +1,14 @@
+markdown h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+markdown ul {
+  list-style: disc;
+  padding-left: 2rem;
+}
+
+markdown li {
+  margin-bottom: 0.5rem;
+}

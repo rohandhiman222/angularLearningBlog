@@ -1,6 +1,6 @@
-<aside [class.w-64]="!isCollapsed" [class.w-16]="isCollapsed"
+<!-- <aside [class.w-64]="!isCollapsed" [class.w-16]="isCollapsed"
        class="bg-gray-800 text-white min-h-screen transition-all duration-300">
-  <!-- Sidebar Header -->
+
   <div class="flex items-center justify-between p-4">
     <span class="text-xl font-semibold" *ngIf="!isCollapsed">MyApp</span>
 
@@ -19,7 +19,7 @@
         <span *ngIf="!isCollapsed">{{ item.title }}</span>
       </a>
 
-      <!-- Submenu -->
+
       <div *ngIf="item.children" class="mb-2">
         <button (click)="toggleSubmenu(i)" class="w-full text-left py-2 px-3 flex items-center rounded hover:bg-gray-700">
           <ng-icon [name]="item.icon" class="h-5 w-5 mr-3"></ng-icon>
@@ -28,7 +28,7 @@
           <ng-icon *ngIf="!isCollapsed" [name]="openSubmenuIndex === i ? 'heroChevronUp' : 'heroChevronDown'" class="ml-auto h-5 w-5"></ng-icon>
         </button>
 
-        <!-- Children -->
+
         <ul *ngIf="openSubmenuIndex === i" class="pl-4">
           <li *ngFor="let child of item.children">
             <a [routerLink]="child.route"
@@ -40,4 +40,25 @@
       </div>
     </li>
   </ul>
+</aside> -->
+
+
+<aside class="w-64 pr-6 border-r text-sm">
+  <h2 class="font-bold text-lg mb-2">Vue 3</h2>
+  <ul class="space-y-1 pl-2">
+    <li class="text-red-500 font-semibold">Vue</li>
+    <li class="pl-2">What is vue?</li>
+    <li class="pl-2">Why Vue.js</li>
+    <li class="pl-2">Features</li>
+    <li class="pl-2">how does it work?</li>
+    <li class="pl-2">Common Directives</li>
+    <li class="pl-2">Official Plugins</li>
+  </ul>
+
+  <h2 class="font-bold text-lg mt-6">Vuejs Basic</h2>
+  <ul class="space-y-1 pl-2 mt-2">
+    <li>Vuex</li>
+    <li>Mixins</li>
+  </ul>
 </aside>
+

@@ -1,11 +1,19 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './navbar/navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+// import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
+import { DocsComponent } from './pages/docs/docs.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, SidebarComponent],
+  imports: [
+    RouterOutlet,
+    NavbarComponent,
+    // SidebarComponent,
+    // HomepageComponent,
+    // DocsComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

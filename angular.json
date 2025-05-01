@@ -79,9 +79,15 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/highlight.js/styles/github-dark.css"
+              "node_modules/highlight.js/styles/github-dark.css",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-csharp.min.js",
+              "node_modules/prismjs/components/prism-css.min.js",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
+            ]
           }
         }
       }

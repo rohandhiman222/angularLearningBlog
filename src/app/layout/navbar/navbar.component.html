@@ -1,0 +1,71 @@
+<nav class="bg-red-400 text-white px-6 py-4 flex items-center justify-between">
+  <a routerLink="/">
+  <h1 class="text-xl font-bold">CodingDais</h1>
+</a>
+  <!-- Desktop menu -->
+  <div class="hidden md:flex items-center gap-6 text-sm">
+    <a routerLink="/" class="font-semibold hover:underline">Home</a>
+    <a routerLink="/clouds" class="hover:underline">Clouds</a>
+
+    <!-- Framework dropdown -->
+    <div class="relative">
+      <button (click)="toggleDropdown('framework')" class="hover:underline">Framework</button>
+      <div
+        *ngIf="activeDropdown === 'framework'"
+        class="absolute bg-white text-black mt-2 rounded shadow-lg w-40 z-50"
+      >
+        <a routerLink="/docs" class="block px-4 py-2 hover:bg-gray-100">Angular</a>
+        <a routerLink="/framework/react" class="block px-4 py-2 hover:bg-gray-100">React</a>
+        <a routerLink="/framework/vue" class="block px-4 py-2 hover:bg-gray-100">Vue</a>
+      </div>
+    </div>
+
+    <!-- Languages dropdown -->
+    <div class="relative">
+      <button (click)="toggleDropdown('language')" class="hover:underline">Languages</button>
+      <div
+        *ngIf="activeDropdown === 'language'"
+        class="absolute bg-white text-black mt-2 rounded shadow-lg w-40 z-50"
+      >
+        <a routerLink="/language/javascript" class="block px-4 py-2 hover:bg-gray-100">JavaScript</a>
+        <a routerLink="/language/typescript" class="block px-4 py-2 hover:bg-gray-100">TypeScript</a>
+        <a routerLink="/language/python" class="block px-4 py-2 hover:bg-gray-100">Python</a>
+      </div>
+    </div>
+
+    <a routerLink="/tools" class="hover:underline">Tools</a>
+    <a routerLink="/contact" class="hover:underline">Contact</a>
+  </div>
+
+  <!-- Mobile Menu Toggle -->
+  <button class="md:hidden text-2xl" (click)="toggleMobileMenu()">☰</button>
+</nav>
+
+<!-- Mobile menu content -->
+<div *ngIf="isMobileMenuOpen" class="md:hidden bg-white text-black p-4 space-y-2">
+  <a routerLink="/" class="block py-2">Home</a>
+  <a routerLink="/clouds" class="block py-2">Clouds</a>
+
+  <!-- Framework dropdown -->
+  <div>
+    <button (click)="toggleDropdown('framework')" class="w-full text-left font-semibold py-2">Framework</button>
+    <div *ngIf="activeDropdown === 'framework'" class="pl-4">
+      <a routerLink="/docs" class="block py-1">Angular</a>
+      <a routerLink="/framework/react" class="block py-1">React</a>
+      <a routerLink="/framework/vue" class="block py-1">Vue</a>
+    </div>
+  </div>
+
+  <!-- Languages dropdown -->
+  <div>
+    <button (click)="toggleDropdown('language')" class="w-full text-left font-semibold py-2">Languages</button>
+    <div *ngIf="activeDropdown === 'language'" class="pl-4">
+      <a routerLink="/language/javascript" class="block py-1">JavaScript</a>
+      <a routerLink="/language/typescript" class="block py-1">TypeScript</a>
+      <a routerLink="/language/python" class="block py-1">Python</a>
+    </div>
+  </div>
+
+  <a routerLink="/tools" class="block py-2">Tools</a>
+  <a routerLink="/contact" class="block py-2">Contact</a>
+</div>

@@ -1,0 +1,35 @@
+<div class="max-w-7xl mx-auto px-4 mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+  <!-- Blog Posts -->
+  <div class="md:col-span-2">
+    <h2 class="text-2xl font-semibold border-b pb-2 mb-4">Latest posts</h2>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <!-- Post Card -->
+        @for (post of posts; track post.title) {
+          <div class="bg-white rounded shadow overflow-hidden">
+            <img [src]="post.image" [alt]="post.title" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <span class="bg-green-500 text-white px-2 py-1 text-xs rounded">
+                {{ post.tag }}
+              </span>
+              <p class="text-sm text-gray-500 mt-1">{{ post.date }}</p>
+              <a [routerLink]="['/post-details', post.slug]">
+              <h3 class="text-lg font-semibold text-red-500 mt-2">
+                {{ post.title }}
+              </h3>
+            </a>
+            </div>
+          </div>
+        }
+
+
+
+      <!-- Post Card -->
+
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <app-asidebar></app-asidebar>
+</div>

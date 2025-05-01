@@ -3,6 +3,8 @@ import { provideRouter } from '@angular/router';
 import { provideHighlightOptions } from 'ngx-highlightjs';
 
 import { routes } from './app.routes';
+import { provideMarkdown } from 'ngx-markdown';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,5 +20,8 @@ export const appConfig: ApplicationConfig = {
       themePath: 'felipec.min.css', // Ensure this file exists in your assets
     }),
     provideRouter(routes),
+
+    provideHttpClient(), // This provides HttpClient
+    provideMarkdown(), // This configures ngx-markdown with HttpClient
   ],
 };

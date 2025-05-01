@@ -1,0 +1,37 @@
+<div class="flex max-w-7xl mx-auto mt-6 px-4">
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+  <!-- Main Content -->
+  <main class="flex-1 pl-6 space-y-6">
+    <section>
+      <h1 class="text-4xl font-bold text-red-500">Vue</h1>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold text-red-500 border-b pb-1">What is vue?</h2>
+      <p class="mt-2">
+        Vue was created by Evan You after working for Google using AngularJS in number of projects.
+        He later summed up his thought process: "I figured, what if I could just extract the part that I really liked about Angular and build something really lightweight".
+        The first source code commit to the project was dated July 2013, and Vue was first released the following February, in 2014.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold text-red-500 border-b pb-1">Why Vue.js</h2>
+      <ul class="list-disc pl-6 mt-2 space-y-1">
+        <li>Developers can get on boarded really quickly.</li>
+        <li>Reactive data binding.</li>
+        <li>Components</li>
+        <li>Simple API</li>
+        <li>Lightweight</li>
+        <li>Growing Community</li>
+      </ul>
+    </section>
+    <app-prism-highlighter
+    [code]="codeHere"
+    [language]="'javascript'">
+  </app-prism-highlighter>
+
+
+  </main>
+</div>
