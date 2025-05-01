@@ -1,20 +1,21 @@
-import { Component } from '@angular/core';
-import { PrismHighlighterComponent } from '../../prism-highlighter/prism-highlighter.component';
-import { CardComponent } from '../../shareui/card/card.component';
-import { MarkdownComponent } from 'ngx-markdown';
+import { Component, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 
 @Component({
   selector: 'app-learn-ng-content',
-  imports: [PrismHighlighterComponent, CardComponent, MarkdownComponent],
-  providers: [
-    // Provide MarkdownService if you need it in your component
-  ],
-  templateUrl: './learn-ng-content.component.html',
-  styleUrl: './learn-ng-content.component.css',
   standalone: true,
+  imports: [
+    MarkdownModule,
+
+    // Import necessary components here
+  ],
+  providers: [MarkdownService],
+  templateUrl: './learn-ng-content.component.html',
+  styleUrls: ['./learn-ng-content.component.css'],
 })
 export class LearnNgContentComponent {
-  codeHere: any = `class MyClass {
+  codeHere: any = `class MyClass {.forRoot()
   public static myValue: string;
   constructor(init: string) {
     this.myValue = init;
@@ -28,6 +29,7 @@ module MyModule {
 }
 declare magicNumber number;
 myArray.forEach(() => { }); // fat arrow syntax`;
+
   markdown = `## Markdown __rulez__!
 ---
 
@@ -44,4 +46,35 @@ const language = 'typescript';
 
 ### Blockquote
 > Blockquote to the max`;
+
+  markdownPath = '/assets/sample.md';
+
+  constructor(
+    private markdownService: MarkdownService,
+    private http: HttpClient
+  ) {}
+
+  ngOnInit(): void {
+    // Customize heading renderer if needed
+    // this.markdownService.renderer.heading = ({
+    //   tokens,
+    //   depth,
+    // }: {
+    //   tokens: any[];
+    //   depth: number;
+    // }) => {
+    //   const text =
+    //     tokens[0]?.text || tokens.map((token) => token.text || '').join('');
+    //   const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+    //   return `<h${depth} id="${escapedText}"><a class="anchor" href="#${escapedText}"><span class="header-link"></span></a>${text}</h${depth}>`;
+    // };
+  }
+
+  onLoad(): void {
+    console.log('Markdown loaded');
+  }
+
+  onError(error: string | Error): void {
+    console.error('Markdown error:', error);
+  }
 }

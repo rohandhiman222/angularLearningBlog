@@ -1,14 +1,21 @@
-markdown h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+.markdown-container {
+  padding: 20px;
 }
 
-markdown ul {
-  list-style: disc;
-  padding-left: 2rem;
+.markdown-clipboard-toolbar {
+  opacity: 0;
+  transition: opacity 250ms ease-out;
 }
 
-markdown li {
-  margin-bottom: 0.5rem;
+.markdown-clipboard-toolbar:hover {
+  opacity: 1;
+}
+
+.anchor {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header-link {
+  margin-right: 8px;
 }

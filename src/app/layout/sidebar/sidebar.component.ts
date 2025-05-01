@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NgIcon, provideIcons } from '@ng-icons/core';
-import { RouterLink } from '@angular/router';
-import { NgIf, NgFor } from '@angular/common';
+import { provideIcons } from '@ng-icons/core';
+
+import { CommonModule } from '@angular/common';
 import {
   heroHome,
   heroUsers,
@@ -16,7 +16,7 @@ import {
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [NgIcon, RouterLink, NgIf, NgFor],
+  imports: [CommonModule],
   providers: [
     provideIcons({
       heroHome,

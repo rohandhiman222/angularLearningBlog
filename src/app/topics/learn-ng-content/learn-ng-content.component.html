@@ -1,17 +1,64 @@
 
-<app-prism-highlighter
+<!-- <app-prism-highlighter
   [code]="codeHere"
   [language]="'javascript'">
-</app-prism-highlighter>
+</app-prism-highlighter> -->
 
-<app-card>
+<!-- <app-card>
   <span>This is header main</span>
   <p #ngDesc class="text-gray-700 text-base">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
   </p>
-</app-card>
+</app-card> -->
 
 <input type="text" placeholder="Enter you name" />
 <button>Submit</button>
+<div class="markdown-container prose">
 
-<markdown class="variable-binding" [data]="markdown"></markdown>
+  <!-- Static Markdown -->
+  <!-- <div markdown ngPreserveWhitespaces prism>
+    # Welcome to ngx-markdown
+    This is **bold** text with.
+
+    ```typescript
+    const greeting = 'Hello, Angular 19!';
+    console.log(greeting);
+    ```
+  </div> -->
+
+
+  <h1>dynamic below</h1>
+  <div class="prose max-w-none">
+  <!-- Dynamic Markdown from file -->
+  <markdown class="not-prose"
+
+    [src]="'assets/sample.md'"
+    prsim
+    (load)="onLoad()"
+
+  ></markdown>
+</div>
+
+  <markdown>
+    ## Hello from standalone
+    This is rendered using **ngx-markdown**!
+  </markdown>
+
+
+  </div>
+  <h1>hhhh</h1>
+  <!-- <div class="markdown-container prose">
+    <div markdown [src]="markdown" prism></div>
+  </div> -->
+  <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+    Tailwind + Angular Works!
+  </button>
+<!-- <markdown class="variable-binding" [data]="markdown"></markdown> -->
+
+<markdown class="not-prose"
+
+    [src]="'assets/sample.md'"
+    prsim
+    (load)="onLoad()"
+
+  ></markdown>

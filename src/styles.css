@@ -1,3 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
-@import "tailwindcss";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+h1 {
+  font-size: 3rem; /* 48px, equivalent to text-5xl */
+  font-weight: 700; /* font-bold */
+  line-height: 1.2;
+  letter-spacing: -0.025em; /* tracking-tight */
+}
+
+@layer components {
+  .prose {
+    --tw-prose-headings: #1a202c; /* Darker color for headings */
+  }
+  .prose h1 {
+    @apply text-5xl font-bold tracking-tight; /* Larger h1 */
+  }
+  .prose h2 {
+    @apply text-4xl font-semibold; /* Larger h2 */
+  }
+
+}
+
+
 
